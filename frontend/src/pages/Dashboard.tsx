@@ -22,10 +22,10 @@ interface Pagination {
 }
 
 const statusColors = {
-  New: 'bg-blue-100 text-blue-800',
-  Contacted: 'bg-yellow-100 text-yellow-800',
-  Qualified: 'bg-green-100 text-green-800',
-  Lost: 'bg-red-100 text-red-800',
+  New: 'bg-blue-100 text-blue-800 dark:bg-blue-950/40 dark:text-blue-400 dark:border dark:border-blue-900/50',
+  Contacted: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-950/40 dark:text-yellow-400 dark:border dark:border-yellow-900/50',
+  Qualified: 'bg-green-100 text-green-800 dark:bg-green-950/40 dark:text-green-400 dark:border dark:border-green-900/50',
+  Lost: 'bg-red-100 text-red-800 dark:bg-red-950/40 dark:text-red-400 dark:border dark:border-red-900/50',
 };
 
 const Dashboard = () => {
@@ -117,12 +117,12 @@ const Dashboard = () => {
       {/* Header Actions */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">Leads Management</h2>
-          <p className="text-sm text-gray-500 mt-1">Track and manage your potential clients efficiently.</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-slate-100 theme-transition">Leads Management</h2>
+          <p className="text-sm text-gray-500 dark:text-slate-400 mt-1 theme-transition">Track and manage your potential clients efficiently.</p>
         </div>
         <button
           onClick={() => openModal()}
-          className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-xl hover:bg-primary-700 focus:ring-4 focus:ring-primary-100 transition-all shadow-sm"
+          className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-primary-600 rounded-xl hover:bg-primary-700 focus:ring-4 focus:ring-primary-100 dark:focus:ring-primary-950/40 transition-all shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-95 duration-200 cursor-pointer"
         >
           <Plus className="w-5 h-5 mr-2" />
           Add New Lead
@@ -130,62 +130,62 @@ const Dashboard = () => {
       </div>
 
       {/* Filters and Search */}
-      <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800/80 grid grid-cols-1 md:grid-cols-4 gap-4 theme-transition">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500 w-5 h-5" />
           <input
             type="text"
             placeholder="Search name or email..."
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1); }}
-            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-100 focus:border-primary-500 text-sm transition-all"
+            className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-950/40 focus:border-primary-500 text-sm transition-all"
           />
         </div>
         <div className="relative">
-          <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500 w-4 h-4 pointer-events-none" />
           <select
             value={status}
             onChange={(e) => { setStatus(e.target.value); setPage(1); }}
-            className="w-full pl-9 pr-4 py-2 appearance-none border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-100 focus:border-primary-500 text-sm bg-white"
+            className="w-full pl-9 pr-4 py-2 appearance-none border border-gray-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-950/40 focus:border-primary-500 text-sm bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 focus:outline-none transition-all"
           >
-            <option value="">All Statuses</option>
-            <option value="New">New</option>
-            <option value="Contacted">Contacted</option>
-            <option value="Qualified">Qualified</option>
-            <option value="Lost">Lost</option>
+            <option value="" className="bg-white dark:bg-slate-900">All Statuses</option>
+            <option value="New" className="bg-white dark:bg-slate-900">New</option>
+            <option value="Contacted" className="bg-white dark:bg-slate-900">Contacted</option>
+            <option value="Qualified" className="bg-white dark:bg-slate-900">Qualified</option>
+            <option value="Lost" className="bg-white dark:bg-slate-900">Lost</option>
           </select>
         </div>
         <div className="relative">
-          <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500 w-4 h-4 pointer-events-none" />
           <select
             value={source}
             onChange={(e) => { setSource(e.target.value); setPage(1); }}
-            className="w-full pl-9 pr-4 py-2 appearance-none border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-100 focus:border-primary-500 text-sm bg-white"
+            className="w-full pl-9 pr-4 py-2 appearance-none border border-gray-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-950/40 focus:border-primary-500 text-sm bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 focus:outline-none transition-all"
           >
-            <option value="">All Sources</option>
-            <option value="Website">Website</option>
-            <option value="Instagram">Instagram</option>
-            <option value="Referral">Referral</option>
+            <option value="" className="bg-white dark:bg-slate-900">All Sources</option>
+            <option value="Website" className="bg-white dark:bg-slate-900">Website</option>
+            <option value="Instagram" className="bg-white dark:bg-slate-900">Instagram</option>
+            <option value="Referral" className="bg-white dark:bg-slate-900">Referral</option>
           </select>
         </div>
         <div className="relative">
-          <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4" />
+          <ArrowUpDown className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500 w-4 h-4 pointer-events-none" />
           <select
             value={sort}
             onChange={(e) => { setSort(e.target.value); setPage(1); }}
-            className="w-full pl-9 pr-4 py-2 appearance-none border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-100 focus:border-primary-500 text-sm bg-white"
+            className="w-full pl-9 pr-4 py-2 appearance-none border border-gray-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-950/40 focus:border-primary-500 text-sm bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 focus:outline-none transition-all"
           >
-            <option value="Latest">Latest First</option>
-            <option value="Oldest">Oldest First</option>
+            <option value="Latest" className="bg-white dark:bg-slate-900">Latest First</option>
+            <option value="Oldest" className="bg-white dark:bg-slate-900">Oldest First</option>
           </select>
         </div>
       </div>
 
       {/* Leads Table */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-800/80 overflow-hidden theme-transition">
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left text-gray-500">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 border-b border-gray-100">
+          <table className="w-full text-sm text-left text-gray-500 dark:text-slate-400">
+            <thead className="text-xs text-gray-700 dark:text-slate-300 uppercase bg-gray-50 dark:bg-slate-950 border-b border-gray-100 dark:border-slate-800 theme-transition">
               <tr>
                 <th className="px-6 py-4 font-medium">Lead Info</th>
                 <th className="px-6 py-4 font-medium">Status</th>
@@ -199,40 +199,46 @@ const Dashboard = () => {
                 <tr>
                   <td colSpan={5} className="px-6 py-12 text-center">
                     <Loader2 className="w-8 h-8 animate-spin text-primary-500 mx-auto" />
-                    <p className="mt-2 text-gray-500">Loading leads...</p>
+                    <p className="mt-2 text-gray-500 dark:text-slate-400">Loading leads...</p>
                   </td>
                 </tr>
               ) : leads.length === 0 ? (
                 <tr>
                   <td colSpan={5} className="px-6 py-12 text-center">
-                    <div className="mx-auto w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-3">
-                      <Search className="w-8 h-8 text-gray-400" />
+                    <div className="mx-auto w-16 h-16 bg-gray-50 dark:bg-slate-950 rounded-full flex items-center justify-center mb-3">
+                      <Search className="w-8 h-8 text-gray-400 dark:text-slate-500" />
                     </div>
-                    <p className="text-gray-900 font-medium">No leads found</p>
-                    <p className="mt-1 text-gray-500 text-sm">Try adjusting your filters or add a new lead.</p>
+                    <p className="text-gray-900 dark:text-slate-200 font-medium">No leads found</p>
+                    <p className="mt-1 text-gray-500 dark:text-slate-400 text-sm">Try adjusting your filters or add a new lead.</p>
                   </td>
                 </tr>
               ) : (
                 leads.map((lead) => (
-                  <tr key={lead._id} className="bg-white border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                  <tr key={lead._id} className="bg-white dark:bg-slate-900 border-b border-gray-50 dark:border-slate-800/60 hover:bg-gray-50/50 dark:hover:bg-slate-800/30 transition-colors theme-transition">
                     <td className="px-6 py-4">
-                      <p className="font-medium text-gray-900">{lead.name}</p>
-                      <p className="text-gray-500 text-xs mt-0.5">{lead.email}</p>
+                      <p className="font-medium text-gray-900 dark:text-slate-200">{lead.name}</p>
+                      <p className="text-gray-500 dark:text-slate-400 text-xs mt-0.5">{lead.email}</p>
                     </td>
                     <td className="px-6 py-4">
                       <span className={clsx("px-2.5 py-1 text-xs font-medium rounded-full", statusColors[lead.status])}>
                         {lead.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-gray-600">{lead.source}</td>
-                    <td className="px-6 py-4 text-gray-600">
+                    <td className="px-6 py-4 text-gray-600 dark:text-slate-300">{lead.source}</td>
+                    <td className="px-6 py-4 text-gray-600 dark:text-slate-300">
                       {new Date(lead.createdAt).toLocaleDateString()}
                     </td>
                     <td className="px-6 py-4 text-right">
-                      <button onClick={() => openModal(lead)} className="text-gray-400 hover:text-primary-600 p-1 transition-colors">
+                      <button
+                        onClick={() => openModal(lead)}
+                        className="text-gray-400 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-all cursor-pointer"
+                      >
                         <Edit2 className="w-4 h-4" />
                       </button>
-                      <button onClick={() => handleDelete(lead._id)} className="text-gray-400 hover:text-red-600 p-1 ml-2 transition-colors">
+                      <button
+                        onClick={() => handleDelete(lead._id)}
+                        className="text-gray-400 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 p-1.5 ml-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-all cursor-pointer"
+                      >
                         <Trash2 className="w-4 h-4" />
                       </button>
                     </td>
@@ -245,24 +251,24 @@ const Dashboard = () => {
 
         {/* Pagination */}
         {pagination && pagination.totalPages > 1 && (
-          <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100 bg-gray-50">
-            <span className="text-sm text-gray-600">
-              Showing <span className="font-medium text-gray-900">{(pagination.page - 1) * pagination.limit + 1}</span> to{' '}
-              <span className="font-medium text-gray-900">{Math.min(pagination.page * pagination.limit, pagination.total)}</span> of{' '}
-              <span className="font-medium text-gray-900">{pagination.total}</span> leads
+          <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100 dark:border-slate-800/80 bg-gray-50 dark:bg-slate-950 theme-transition">
+            <span className="text-sm text-gray-600 dark:text-slate-400">
+              Showing <span className="font-medium text-gray-900 dark:text-slate-200">{(pagination.page - 1) * pagination.limit + 1}</span> to{' '}
+              <span className="font-medium text-gray-900 dark:text-slate-200">{Math.min(pagination.page * pagination.limit, pagination.total)}</span> of{' '}
+              <span className="font-medium text-gray-900 dark:text-slate-200">{pagination.total}</span> leads
             </span>
             <div className="flex gap-2">
               <button
                 onClick={() => setPage(p => Math.max(1, p - 1))}
                 disabled={page === 1}
-                className="p-1 rounded-lg border border-gray-200 bg-white text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="p-1.5 rounded-lg border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-gray-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={() => setPage(p => Math.min(pagination.totalPages, p + 1))}
                 disabled={page === pagination.totalPages}
-                className="p-1 rounded-lg border border-gray-200 bg-white text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="p-1.5 rounded-lg border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-gray-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -273,74 +279,77 @@ const Dashboard = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/50 backdrop-blur-sm">
-          <div className="bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl animate-in fade-in zoom-in-95 duration-200">
-            <div className="flex justify-between items-center p-6 border-b border-gray-100">
-              <h3 className="text-xl font-semibold text-gray-900">{editingLead ? 'Edit Lead' : 'Add New Lead'}</h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-gray-400 hover:text-gray-600 transition-colors">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-white dark:bg-slate-900 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl border border-gray-100 dark:border-slate-800/80 animate-in fade-in zoom-in-95 duration-200 theme-transition">
+            <div className="flex justify-between items-center p-6 border-b border-gray-100 dark:border-slate-800/80 theme-transition">
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-slate-100">{editingLead ? 'Edit Lead' : 'Add New Lead'}</h3>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="text-gray-400 dark:text-slate-500 hover:text-gray-600 dark:hover:text-slate-300 p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+              >
                 <X className="w-5 h-5" />
               </button>
             </div>
             <form onSubmit={handleSubmit} className="p-6 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">Name</label>
                 <input
                   required
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-100 focus:border-primary-500 text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-950/40 focus:border-primary-500 text-sm focus:outline-none transition-all"
                   placeholder="Lead Name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">Email</label>
                 <input
                   required
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-100 focus:border-primary-500 text-sm"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-950/40 focus:border-primary-500 text-sm focus:outline-none transition-all"
                   placeholder="lead@example.com"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">Status</label>
                 <select
                   value={formData.status}
                   onChange={(e) => setFormData({ ...formData, status: e.target.value as any })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-100 focus:border-primary-500 text-sm bg-white"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-950/40 focus:border-primary-500 text-sm focus:outline-none transition-all"
                 >
-                  <option value="New">New</option>
-                  <option value="Contacted">Contacted</option>
-                  <option value="Qualified">Qualified</option>
-                  <option value="Lost">Lost</option>
+                  <option value="New" className="bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100">New</option>
+                  <option value="Contacted" className="bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100">Contacted</option>
+                  <option value="Qualified" className="bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100">Qualified</option>
+                  <option value="Lost" className="bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100">Lost</option>
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Source</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-1">Source</label>
                 <select
                   value={formData.source}
                   onChange={(e) => setFormData({ ...formData, source: e.target.value as any })}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-100 focus:border-primary-500 text-sm bg-white"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 focus:ring-2 focus:ring-primary-100 dark:focus:ring-primary-950/40 focus:border-primary-500 text-sm focus:outline-none transition-all"
                 >
-                  <option value="Website">Website</option>
-                  <option value="Instagram">Instagram</option>
-                  <option value="Referral">Referral</option>
+                  <option value="Website" className="bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100">Website</option>
+                  <option value="Instagram" className="bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100">Instagram</option>
+                  <option value="Referral" className="bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100">Referral</option>
                 </select>
               </div>
               <div className="pt-4 flex gap-3">
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-1 py-2.5 px-4 border border-gray-200 text-gray-700 rounded-xl hover:bg-gray-50 font-medium text-sm transition-colors"
+                  className="flex-1 py-2.5 px-4 border border-gray-200 dark:border-slate-700 text-gray-700 dark:text-slate-300 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-800 font-medium text-sm transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 py-2.5 px-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 font-medium text-sm disabled:opacity-50 transition-colors"
+                  className="flex-1 py-2.5 px-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 font-medium text-sm disabled:opacity-50 transition-colors cursor-pointer"
                 >
                   {isSubmitting ? 'Saving...' : 'Save Lead'}
                 </button>
