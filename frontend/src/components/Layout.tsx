@@ -1,6 +1,5 @@
-import React from 'react';
 import { useAuthStore } from '../store/authStore';
-import { LogOut, LayoutDashboard, User as UserIcon } from 'lucide-react';
+import { LogOut, LayoutDashboard } from 'lucide-react';
 import { Outlet, useNavigate } from 'react-router-dom';
 
 const Layout = () => {
