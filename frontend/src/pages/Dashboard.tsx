@@ -1,4 +1,5 @@
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, useEffect } from 'react';
+import type { FormEvent } from 'react';
 import { toast } from 'sonner';
 import { Plus, Search, Filter, ArrowUpDown, Edit2, Trash2, X, Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
 import api from '../api/api';
