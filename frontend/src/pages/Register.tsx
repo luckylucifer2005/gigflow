@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { Mail, Lock, User, ArrowRight } from 'lucide-react';
@@ -13,7 +13,7 @@ const Register = () => {
   const login = useAuthStore((state) => state.login);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!name || !email || !password) return toast.error('Please fill all fields');
     if (password.length < 6) return toast.error('Password must be at least 6 characters');

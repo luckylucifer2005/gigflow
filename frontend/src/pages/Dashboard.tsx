@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { toast } from 'sonner';
 import { Plus, Search, Filter, ArrowUpDown, Edit2, Trash2, X, Loader2, ChevronLeft, ChevronRight } from 'lucide-react';
 import api from '../api/api';
@@ -91,7 +91,7 @@ const Dashboard = () => {
     setIsModalOpen(true);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
